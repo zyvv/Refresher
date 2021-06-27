@@ -1,6 +1,7 @@
 # Refresher
 
 Refresher is a pull-to-refresh component that can customize animation according to the pull-down state.
+
 The core code comes from [MJRefresh](https://github.com/CoderMJLee/MJRefresh) and [PullToRefresh](https://github.com/Yalantis/PullToRefresh).
 ![Refresher](refresher.gif)
 
@@ -17,6 +18,12 @@ The core code comes from [MJRefresh](https://github.com/CoderMJLee/MJRefresh) an
 ```ruby
 use_frameworks!
 pod 'Refresher_Swift'
+```
+
+### [Carthage](https://github.com/Carthage/Carthage)
+
+```ogdl
+github "zyvv/Refresher" ~> 1.0.1
 ```
 
 ## Usage
@@ -80,7 +87,7 @@ class CustomAnimateView: UIView, Refreshable {
         case .pulling(let progress): pullingAnimation(progress)
 
         // Animation to be refreshed.
-        // overOffset: The pull-down height of the scrollview in this state.
+        // overOffset: The pull-down offset of the scrollview in this state.
         case .willRefresh(let overOffset): willRefreshAnimation(overOffset)
         
         // Animation being refreshed.
@@ -105,9 +112,9 @@ collectionView.topRefresher = Refresher(CustomAnimateView()) {
 
 #### Pull-up to Load More
 
-The difference with pull-down refresh is that the state of pull-up loading is directly from `.idle` to `.refreshing` after Refresher appears.
+The difference with pull-down refresh is that the state of pull-up refresh is directly from `.idle` to `.refreshing` after `bottomRefresher` appears.
 
-Pull-up refresh can be ended directly, or a no-more-data view can be added after the end. After the view is added, `bottomRefresher` will be disabled.
+ Pull-up refresh can be ended like pull-down refresh, or a no-more-data view can be added after the end. After the view is added, `bottomRefresher` will be disabled.
 
 ```swift
 func noMoreLabel() -> UILabel {
