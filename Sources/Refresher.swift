@@ -97,7 +97,7 @@ public final class Refresher: UIView {
         }
     }
     
-    init(_ animateView: Refreshable = DefaultAnimateView(),
+    public init(_ animateView: Refreshable = DefaultAnimateView(),
          position: Position = .top,
          height: CGFloat = 52,
          action: @escaping RefresherAction) {

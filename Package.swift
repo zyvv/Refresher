@@ -13,5 +13,8 @@ let package = Package(
         .target(
             name: "Refresher",
             path: "Sources")
+    ],
+    swiftLanguageVersions: [
+        .v5
     ]
 )

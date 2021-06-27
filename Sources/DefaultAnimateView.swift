@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DefaultAnimateView: UIView, Refreshable {
+public final class DefaultAnimateView: UIView, Refreshable {
 
     lazy var activityIndicator: UIActivityIndicatorView = {
         if #available(iOS 13.0, *) {
@@ -47,7 +47,7 @@ class DefaultAnimateView: UIView, Refreshable {
         activityIndicator.transform = transform
     }
     
-    func animate(_ state: Refresher.State) {
+    public func animate(_ state: Refresher.State) {
         switch state {
         case .idle:
             activityIndicator.stopAnimating()
