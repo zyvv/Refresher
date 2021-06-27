@@ -9,9 +9,14 @@ import UIKit
 
 class DefaultAnimateView: UIView, Refreshable {
 
-    lazy var activityIndicator: UIActivityIndicatorView! = {
-        let activityIndicator = UIActivityIndicatorView(style: .medium)
-        return activityIndicator
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        if #available(iOS 13.0, *) {
+            let activityIndicator = UIActivityIndicatorView(style: .medium)
+            return activityIndicator
+        } else {
+            let activityIndicator = UIActivityIndicatorView(style: .gray)
+            return activityIndicator
+        }
     }()
     
     override init(frame: CGRect) {
