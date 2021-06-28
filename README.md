@@ -1,10 +1,10 @@
 # Refresher
 
-Refresher is a pull-to-refresh component that can customize animation according to the pull-down state.
+Refresher is a pull-to-refresh component that can customize animation according to the pull-down state. The core code based on [MJRefresh](https://github.com/CoderMJLee/MJRefresh) and [PullToRefresh](https://github.com/Yalantis/PullToRefresh).
 
-The core code comes from [MJRefresh](https://github.com/CoderMJLee/MJRefresh) and [PullToRefresh](https://github.com/Yalantis/PullToRefresh).
-![Refresher](refresher.gif)
-
+<div align="center">
+<img src="refresher.gif" width="250" alt="Refresher"/>
+</div>
 
 ## Requirements
 - iOS 11.0+
@@ -23,16 +23,36 @@ pod 'Refresher_Swift'
 ### [Carthage](https://github.com/Carthage/Carthage)
 
 ```ogdl
-github "zyvv/Refresher" ~> 1.0.1
+github "zyvv/Refresher"
+```
+
+### [Swift Package Manager](https://swift.org/package-manager/)
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/zyvv/Refresher", .upToNextMajor(from: "1.0.0"))
+]
 ```
 
 ## Usage
 
 ### Quick Start
 
+
+If you installed via CocoaPods:
+
 ```swift
 import Refresher_Swift
+```
+Otherwise:
 
+```swift
+import Refresher
+```
+
+Then:
+
+```swift
 class MyViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -132,3 +152,7 @@ func endRefreshing(count: Int) {
 }
 ```
 
+
+## License
+
+Refresher is released under the MIT license. See LICENSE for details.

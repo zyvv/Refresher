@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		974BB9792689D2A7005B7C54 /* Refresher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 974BB9722689D2A7005B7C54 /* Refresher.framework */; };
+		974BB97A2689D2A7005B7C54 /* Refresher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 974BB9722689D2A7005B7C54 /* Refresher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		974BB97E2689D2FB005B7C54 /* Refreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C6C26A2688C73000FF26D9 /* Refreshable.swift */; };
+		974BB97F2689D2FB005B7C54 /* DefaultAnimateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C6C26B2688C73000FF26D9 /* DefaultAnimateView.swift */; };
+		974BB9802689D2FB005B7C54 /* Refresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C6C26C2688C73000FF26D9 /* Refresher.swift */; };
+		974BB9812689D2FB005B7C54 /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C6C26D2688C73000FF26D9 /* UIScrollView+Extension.swift */; };
+		974BB9822689D2FB005B7C54 /* UIScrollView+Refresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C6C26E2688C73000FF26D9 /* UIScrollView+Refresher.swift */; };
 		97C6C25C2688C69700FF26D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E58EC026844D8800860764 /* AppDelegate.swift */; };
 		97C6C25D2688C69700FF26D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E58EC226844D8800860764 /* SceneDelegate.swift */; };
 		97C6C25E2688C69700FF26D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E58EC426844D8800860764 /* ViewController.swift */; };
@@ -21,22 +28,15 @@
 		97C6C2722688C73000FF26D9 /* Refresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C6C26C2688C73000FF26D9 /* Refresher.swift */; };
 		97C6C2732688C73000FF26D9 /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C6C26D2688C73000FF26D9 /* UIScrollView+Extension.swift */; };
 		97C6C2742688C73000FF26D9 /* UIScrollView+Refresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C6C26E2688C73000FF26D9 /* UIScrollView+Refresher.swift */; };
-		97C6C2822688C84300FF26D9 /* Refresher_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97C6C27B2688C84300FF26D9 /* Refresher_Swift.framework */; };
-		97C6C2832688C84300FF26D9 /* Refresher_Swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 97C6C27B2688C84300FF26D9 /* Refresher_Swift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		97C6C2882688C8A900FF26D9 /* Refreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C6C26A2688C73000FF26D9 /* Refreshable.swift */; };
-		97C6C2892688C8A900FF26D9 /* DefaultAnimateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C6C26B2688C73000FF26D9 /* DefaultAnimateView.swift */; };
-		97C6C28A2688C8A900FF26D9 /* Refresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C6C26C2688C73000FF26D9 /* Refresher.swift */; };
-		97C6C28B2688C8A900FF26D9 /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C6C26D2688C73000FF26D9 /* UIScrollView+Extension.swift */; };
-		97C6C28C2688C8A900FF26D9 /* UIScrollView+Refresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C6C26E2688C73000FF26D9 /* UIScrollView+Refresher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		97C6C2802688C84300FF26D9 /* PBXContainerItemProxy */ = {
+		974BB9772689D2A7005B7C54 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 97E58EB526844D8800860764 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 97C6C27A2688C84300FF26D9;
-			remoteInfo = Refresher_Swift;
+			remoteGlobalIDString = 974BB9712689D2A7005B7C54;
+			remoteInfo = Refresher;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -47,7 +47,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				97C6C2832688C84300FF26D9 /* Refresher_Swift.framework in Embed Frameworks */,
+				974BB97A2689D2A7005B7C54 /* Refresher.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,14 +57,14 @@
 /* Begin PBXFileReference section */
 		09F8274E4812A01381079A19 /* Pods_Refresher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Refresher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		973F7D912685B9C8005DD6AD /* ArcAnimateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcAnimateView.swift; sourceTree = "<group>"; };
-		97C6C2482688C66B00FF26D9 /* Refresher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Refresher.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		974BB9722689D2A7005B7C54 /* Refresher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Refresher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		97C6C2482688C66B00FF26D9 /* Refresher_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Refresher_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97C6C26A2688C73000FF26D9 /* Refreshable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Refreshable.swift; sourceTree = "<group>"; };
 		97C6C26B2688C73000FF26D9 /* DefaultAnimateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAnimateView.swift; sourceTree = "<group>"; };
 		97C6C26C2688C73000FF26D9 /* Refresher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Refresher.swift; sourceTree = "<group>"; };
 		97C6C26D2688C73000FF26D9 /* UIScrollView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extension.swift"; sourceTree = "<group>"; };
 		97C6C26E2688C73000FF26D9 /* UIScrollView+Refresher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Refresher.swift"; sourceTree = "<group>"; };
 		97C6C26F2688C73000FF26D9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		97C6C27B2688C84300FF26D9 /* Refresher_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Refresher_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97CCD08226876658009533E4 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		97CCD08426876F7B009533E4 /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		97E58EC026844D8800860764 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,18 +77,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		974BB96F2689D2A7005B7C54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97C6C2452688C66B00FF26D9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97C6C2822688C84300FF26D9 /* Refresher_Swift.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		97C6C2782688C84300FF26D9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				974BB9792689D2A7005B7C54 /* Refresher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,8 +129,8 @@
 		97E58EBE26844D8800860764 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				97C6C2482688C66B00FF26D9 /* Refresher.app */,
-				97C6C27B2688C84300FF26D9 /* Refresher_Swift.framework */,
+				97C6C2482688C66B00FF26D9 /* Refresher_iOS.app */,
+				974BB9722689D2A7005B7C54 /* Refresher.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -155,7 +155,7 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		97C6C2762688C84300FF26D9 /* Headers */ = {
+		974BB96D2689D2A7005B7C54 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -165,9 +165,27 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		97C6C2472688C66B00FF26D9 /* Refresher */ = {
+		974BB9712689D2A7005B7C54 /* Refresher */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 97C6C25B2688C66E00FF26D9 /* Build configuration list for PBXNativeTarget "Refresher" */;
+			buildConfigurationList = 974BB97B2689D2A7005B7C54 /* Build configuration list for PBXNativeTarget "Refresher" */;
+			buildPhases = (
+				974BB96D2689D2A7005B7C54 /* Headers */,
+				974BB96E2689D2A7005B7C54 /* Sources */,
+				974BB96F2689D2A7005B7C54 /* Frameworks */,
+				974BB9702689D2A7005B7C54 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Refresher;
+			productName = Refresher;
+			productReference = 974BB9722689D2A7005B7C54 /* Refresher.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		97C6C2472688C66B00FF26D9 /* Refresher_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97C6C25B2688C66E00FF26D9 /* Build configuration list for PBXNativeTarget "Refresher_iOS" */;
 			buildPhases = (
 				97C6C2442688C66B00FF26D9 /* Sources */,
 				97C6C2452688C66B00FF26D9 /* Frameworks */,
@@ -177,30 +195,12 @@
 			buildRules = (
 			);
 			dependencies = (
-				97C6C2812688C84300FF26D9 /* PBXTargetDependency */,
+				974BB9782689D2A7005B7C54 /* PBXTargetDependency */,
 			);
-			name = Refresher;
+			name = Refresher_iOS;
 			productName = Refresher;
-			productReference = 97C6C2482688C66B00FF26D9 /* Refresher.app */;
+			productReference = 97C6C2482688C66B00FF26D9 /* Refresher_iOS.app */;
 			productType = "com.apple.product-type.application";
-		};
-		97C6C27A2688C84300FF26D9 /* Refresher_Swift */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 97C6C2842688C84300FF26D9 /* Build configuration list for PBXNativeTarget "Refresher_Swift" */;
-			buildPhases = (
-				97C6C2762688C84300FF26D9 /* Headers */,
-				97C6C2772688C84300FF26D9 /* Sources */,
-				97C6C2782688C84300FF26D9 /* Frameworks */,
-				97C6C2792688C84300FF26D9 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Refresher_Swift;
-			productName = Refresher_Swift;
-			productReference = 97C6C27B2688C84300FF26D9 /* Refresher_Swift.framework */;
-			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -211,10 +211,10 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
-					97C6C2472688C66B00FF26D9 = {
+					974BB9712689D2A7005B7C54 = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
-					97C6C27A2688C84300FF26D9 = {
+					97C6C2472688C66B00FF26D9 = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
 				};
@@ -234,13 +234,20 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				97C6C2472688C66B00FF26D9 /* Refresher */,
-				97C6C27A2688C84300FF26D9 /* Refresher_Swift */,
+				97C6C2472688C66B00FF26D9 /* Refresher_iOS */,
+				974BB9712689D2A7005B7C54 /* Refresher */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		974BB9702689D2A7005B7C54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97C6C2462688C66B00FF26D9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -251,16 +258,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		97C6C2792688C84300FF26D9 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		974BB96E2689D2A7005B7C54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				974BB97E2689D2FB005B7C54 /* Refreshable.swift in Sources */,
+				974BB97F2689D2FB005B7C54 /* DefaultAnimateView.swift in Sources */,
+				974BB9802689D2FB005B7C54 /* Refresher.swift in Sources */,
+				974BB9812689D2FB005B7C54 /* UIScrollView+Extension.swift in Sources */,
+				974BB9822689D2FB005B7C54 /* UIScrollView+Refresher.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97C6C2442688C66B00FF26D9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -279,25 +291,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		97C6C2772688C84300FF26D9 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				97C6C2882688C8A900FF26D9 /* Refreshable.swift in Sources */,
-				97C6C2892688C8A900FF26D9 /* DefaultAnimateView.swift in Sources */,
-				97C6C28A2688C8A900FF26D9 /* Refresher.swift in Sources */,
-				97C6C28B2688C8A900FF26D9 /* UIScrollView+Extension.swift in Sources */,
-				97C6C28C2688C8A900FF26D9 /* UIScrollView+Refresher.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		97C6C2812688C84300FF26D9 /* PBXTargetDependency */ = {
+		974BB9782689D2A7005B7C54 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 97C6C27A2688C84300FF26D9 /* Refresher_Swift */;
-			targetProxy = 97C6C2802688C84300FF26D9 /* PBXContainerItemProxy */;
+			target = 974BB9712689D2A7005B7C54 /* Refresher */;
+			targetProxy = 974BB9772689D2A7005B7C54 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -321,6 +321,66 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		974BB97C2689D2A7005B7C54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = VN2D9WHJ93;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Sources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zyvv.Refresher;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		974BB97D2689D2A7005B7C54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = VN2D9WHJ93;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Sources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zyvv.Refresher;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		97C6C2592688C66E00FF26D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -360,68 +420,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		97C6C2852688C84300FF26D9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = VN2D9WHJ93;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Sources/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zyvv.Refresher-Swift";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = iphoneos;
-				SUPPORTS_MACCATALYST = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		97C6C2862688C84300FF26D9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = VN2D9WHJ93;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Sources/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zyvv.Refresher-Swift";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = iphoneos;
-				SUPPORTS_MACCATALYST = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -544,20 +542,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		97C6C25B2688C66E00FF26D9 /* Build configuration list for PBXNativeTarget "Refresher" */ = {
+		974BB97B2689D2A7005B7C54 /* Build configuration list for PBXNativeTarget "Refresher" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				97C6C2592688C66E00FF26D9 /* Debug */,
-				97C6C25A2688C66E00FF26D9 /* Release */,
+				974BB97C2689D2A7005B7C54 /* Debug */,
+				974BB97D2689D2A7005B7C54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		97C6C2842688C84300FF26D9 /* Build configuration list for PBXNativeTarget "Refresher_Swift" */ = {
+		97C6C25B2688C66E00FF26D9 /* Build configuration list for PBXNativeTarget "Refresher_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				97C6C2852688C84300FF26D9 /* Debug */,
-				97C6C2862688C84300FF26D9 /* Release */,
+				97C6C2592688C66E00FF26D9 /* Debug */,
+				97C6C25A2688C66E00FF26D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

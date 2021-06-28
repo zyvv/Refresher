@@ -4,15 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Refresher.xcscheme</key>
+		<key>Refresher.xcscheme_^#shared#^_</key>
 		<dict>
-			<key>isShown</key>
-			<true/>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>Refresher_Swift.xcscheme_^#shared#^_</key>
+		<key>Refresher_iOS.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
@@ -40,6 +40,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>974BB9712689D2A7005B7C54</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>97C6C22C2688C20600FF26D9</key>
 		<dict>
 			<key>primary</key>
