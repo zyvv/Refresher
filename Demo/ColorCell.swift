@@ -8,7 +8,7 @@
 import UIKit
 
 class ColorCell: UICollectionViewCell {
-    static let reuserIdentifier = "ColorCell"
+    static let reuseIdentifier = "ColorCell"
     
     lazy var label: UILabel = {
         let label = UILabel()

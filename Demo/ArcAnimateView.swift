@@ -103,6 +103,7 @@ class ArcAnimateView: UIView {
         let rotation = CABasicAnimation(keyPath: "transform.rotation")
         rotation.toValue = CGFloat(360).rads
         rotation.repeatCount = Float.greatestFiniteMagnitude
+        rotation.isRemovedOnCompletion = false
         rotation.duration = 0.7
         arcLayer.add(rotation, forKey: "rotationAnimation")
     }
@@ -122,8 +123,6 @@ extension ArcAnimateView: Refreshable {
         case .willRefresh: break
         case .refreshing:
             refreshingAnimation()
-        case .rebounding(let progress):
-            reboundingAnimation(progress: progress)
         }
     }
 }

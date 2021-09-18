@@ -20,7 +20,6 @@ public extension Refresher {
         case pulling(progress: CGFloat)
         case willRefresh(overOffset: CGFloat)
         case refreshing
-        case rebounding(progress: CGFloat)
         
         public static func ==(lhs: State, rhs: State) -> Bool {
             switch (lhs, rhs) {
@@ -28,7 +27,6 @@ public extension Refresher {
             case (.pulling, .pulling): return true
             case ( .willRefresh, .willRefresh): return true
             case (.refreshing, .refreshing): return true
-            case (.rebounding, rebounding): return true
             default: return false
             }
         }
@@ -39,8 +37,6 @@ public extension Refresher {
                 return lshProgress == rshProgress
             case (.willRefresh(let lshOverOffset), .willRefresh(let rshOverOffset)):
                 return lshOverOffset == rshOverOffset
-            case (.rebounding(let lshProgress), .rebounding(let rshProgress)):
-                return lshProgress == rshProgress
             default:
                 return lhs == rhs
             }
@@ -52,16 +48,13 @@ public extension Refresher {
 public final class Refresher: UIView {
 
     private var scrollViewOriginalInset: UIEdgeInsets = .zero
-    private weak var scrollView: UIScrollView!
+    private weak var scrollView: UIScrollView?
     private var panGesture: UIPanGestureRecognizer?
 
     private var contentOffsetObservation: NSKeyValueObservation?
     private var contentSizeObservation: NSKeyValueObservation?
     private var panGestureStateObservation: NSKeyValueObservation?
-    
-    private var displayLink: CADisplayLink?
-    
-    private var reboundingY: CGFloat = 0
+        
     private var topInsetDelta: CGFloat = 0
     private var lastBottomDelta: CGFloat = 0
     
@@ -69,8 +62,9 @@ public final class Refresher: UIView {
     private let animateView: Refreshable
     private var noMoreDataView: UIView?
     private let action: RefresherAction
+    private var codeRefreshing: Bool = false
     
-    internal var position: Position
+    public internal(set) var position: Position
     
     public var isEnable: Bool = true {
         didSet {
@@ -88,7 +82,7 @@ public final class Refresher: UIView {
         didSet {
             if oldValue === state { return }
             animateView.animate(state)
-            if state == .idle || state == .rebounding(progress: -1) {
+            if state == .idle {
                 if oldValue != .refreshing {  return }
                 endAction()
             } else if state == .refreshing {
@@ -121,6 +115,7 @@ public final class Refresher: UIView {
     public func beginRefreshing() {
         if !isEnable { return }
         if state == .refreshing { return }
+        codeRefreshing = true
         DispatchQueue.main.async {
             self.state = .pulling(progress: 1)
             self.state = .refreshing
@@ -129,9 +124,10 @@ public final class Refresher: UIView {
     
     public func endRefreshing(_ noMoreDataView: UIView? = nil) {
         self.noMoreDataView = noMoreDataView
+        codeRefreshing = false
         DispatchQueue.main.async {
             self.setupNoMoreDataView()
-            self.state = .rebounding(progress: 0)
+            self.state = .idle
         }
     }
     
@@ -148,7 +144,7 @@ public final class Refresher: UIView {
         
         addObservers()
     }
-        
+    
     private func prepare() {
         autoresizingMask = .flexibleWidth
         backgroundColor = .clear
@@ -158,6 +154,7 @@ public final class Refresher: UIView {
     }
     
     private func setupFrame() {
+        guard let scrollView = scrollView else { return }
         frame.size.width = scrollView.frame.width
         frame.origin.x = -scrollView.leftInset
         frame.origin.y = position == .top ? -frame.height : scrollView.contentHeight
@@ -194,6 +191,7 @@ public final class Refresher: UIView {
     }
     
     private func resetInset() {
+        guard let scrollView = scrollView else { return }
         let originalInsetTop = scrollViewOriginalInset.top
         
         var topInset = max(-scrollView.offsetY, originalInsetTop)
@@ -216,7 +214,7 @@ public final class Refresher: UIView {
             self?.scrollViewContentSizeDidChange(change)
         }
         
-        panGesture = scrollView.panGestureRecognizer
+        panGesture = scrollView?.panGestureRecognizer
         panGestureStateObservation = panGesture?.observe(\.state, options: [.old, .new]) { [weak self] _, change in
             self?.scrollViewPanGestureStateDidChange(change)
         }
@@ -233,6 +231,7 @@ public final class Refresher: UIView {
     }
     
     private func topRefresherContentOffsetChangeAction() {
+        guard let scrollView = scrollView else { return }
         if state == .refreshing {
             resetInset()
             return
@@ -264,61 +263,75 @@ public final class Refresher: UIView {
     }
     
     private func bottomRefresherContentOffsetChangeAction() {
+        guard let scrollView = scrollView else { return }
         if state == .refreshing {
             return
         }
         scrollViewOriginalInset = scrollView.inset
         let offsetY = scrollView.offsetY
         let appearOffsetY = getAppearOffsetY()
+                
         if offsetY <= appearOffsetY { return }
-        if state == .idle {
-            state = .pulling(progress: 1)
+        
+        let normal2pullingOffsetY = appearOffsetY + frame.height
+        let pullingPercent = (offsetY - appearOffsetY) / frame.height
+
+        if scrollView.isDragging {
+            if (state == .idle || state == .pulling(progress: -1)) && offsetY < normal2pullingOffsetY {
+                state = .pulling(progress: min(pullingPercent, 1.0))
+            } else if (state == .pulling(progress: 1.0) || state == .willRefresh(overOffset: -1)) && offsetY >= normal2pullingOffsetY {
+                if state == .pulling(progress: 1.0) {
+                    state = .pulling(progress: 1.0)
+                }
+                state = .willRefresh(overOffset: offsetY - normal2pullingOffsetY)
+            } else if state == .willRefresh(overOffset: -1) && offsetY < normal2pullingOffsetY {
+                state = .pulling(progress: min(pullingPercent, 1.0))
+            }
+        } else if state == .willRefresh(overOffset: -1) {
             state = .refreshing
         }
     }
         
     private func refreshingAction() {
+        guard let scrollView = scrollView else { return }
+        guard scrollView.panGestureRecognizer.state != .cancelled else {
+            self.action()
+            return
+        }
         UIView.animate(withDuration: 0.25) {
             if self.position == .top {
-                guard self.scrollView.panGestureRecognizer.state != .cancelled else {
-                    self.action()
-                    return
-                }
                 let top = self.scrollViewOriginalInset.top + self.frame.height
-                self.scrollView.topInset = top
-                var offset = self.scrollView.contentOffset
+                scrollView.topInset = top
+                var offset = scrollView.contentOffset
                 offset.y = -top
-                self.scrollView.setContentOffset(offset, animated: false)
-            } else {
+                scrollView.setContentOffset(offset, animated: false)
+            } else if !self.codeRefreshing {
                 var bottom = self.frame.height + self.scrollViewOriginalInset.bottom
                 let deltaHeight = self.heightForContentBreakView()
                 if deltaHeight < 0 {
                     bottom -= deltaHeight
                 }
-                self.lastBottomDelta = bottom - self.scrollView.bottomInset
-                self.scrollView.bottomInset = bottom
-                self.scrollView.offsetY = self.getAppearOffsetY() + self.frame.height
+                self.lastBottomDelta = bottom - scrollView.bottomInset
+                scrollView.bottomInset = bottom
+                var offset = scrollView.contentOffset
+                offset.y = self.getAppearOffsetY() + self.frame.height
+                scrollView.setContentOffset(offset, animated: false)
             }
         } completion: { _ in
             self.action()
-        }            
+        }
     }
     
     private func endAction() {
+        guard let scrollView = scrollView else { return }
         UIView.animate(withDuration: 0.35) {
             if self.position == .top {
-                self.scrollView.topInset += self.topInsetDelta
-            } else {
+                scrollView.topInset += self.topInsetDelta
+            } else if !self.codeRefreshing {
                 self.lastBottomDelta = self.lastBottomDelta - (self.noMoreDataView?.frame.height ?? 0)
-                self.reboundingY = self.scrollView.bounds.origin.y
-                self.scrollView.bottomInset -= self.lastBottomDelta
-                
+                scrollView.bottomInset -= self.lastBottomDelta
             }
-        } completion: { _ in
-            self.stopDisplayLink()
-            self.state = .idle
         }
-        startDisplayLink()
     }
             
     private func scrollViewContentOffsetDidChange(_ change: NSKeyValueObservedChange<CGPoint>?) {
@@ -331,6 +344,7 @@ public final class Refresher: UIView {
     }
     
     private func scrollViewContentSizeDidChange(_ change: NSKeyValueObservedChange<CGSize>?) {
+        guard let scrollView = scrollView else { return }
         guard position == .bottom else { return }
         frame.origin.y = scrollView.contentHeight
     }
@@ -344,6 +358,7 @@ public final class Refresher: UIView {
     }
     
     private func heightForContentBreakView() -> CGFloat {
+        guard let scrollView = scrollView else { return 0 }
         let h = scrollView.frame.height - scrollViewOriginalInset.bottom - scrollViewOriginalInset.top
         return scrollView.contentSize.height - h
     }
@@ -356,26 +371,5 @@ public final class Refresher: UIView {
             }
         }
         return -scrollViewOriginalInset.top
-    }
-    
-    private func startDisplayLink() {
-        displayLink = CADisplayLink(target: self, selector: #selector(handleDisplayLink(_:)))
-        displayLink?.add(to: RunLoop.current, forMode: .common)
-    }
-    
-    private func stopDisplayLink() {
-        displayLink?.invalidate()
-        displayLink = nil
-    }
-    
-    @objc private func handleDisplayLink(_ displayLink: CADisplayLink) {
-        guard let presentation = scrollView.layer.presentation() else { return }
-        var reboundingPercent: CGFloat = 0.0
-        if position == .top {
-            reboundingPercent = (scrollView.topInset - topInsetDelta + presentation.bounds.origin.y) / -self.topInsetDelta
-        } else {
-            reboundingPercent = (reboundingY - presentation.bounds.origin.y) / lastBottomDelta
-        }
-        state = .rebounding(progress: reboundingPercent)
     }
 }

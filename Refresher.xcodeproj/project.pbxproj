@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		974BB9792689D2A7005B7C54 /* Refresher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 974BB9722689D2A7005B7C54 /* Refresher.framework */; };
-		974BB97A2689D2A7005B7C54 /* Refresher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 974BB9722689D2A7005B7C54 /* Refresher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		974BB97E2689D2FB005B7C54 /* Refreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C6C26A2688C73000FF26D9 /* Refreshable.swift */; };
 		974BB97F2689D2FB005B7C54 /* DefaultAnimateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C6C26B2688C73000FF26D9 /* DefaultAnimateView.swift */; };
 		974BB9802689D2FB005B7C54 /* Refresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C6C26C2688C73000FF26D9 /* Refresher.swift */; };
@@ -29,30 +27,6 @@
 		97C6C2732688C73000FF26D9 /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C6C26D2688C73000FF26D9 /* UIScrollView+Extension.swift */; };
 		97C6C2742688C73000FF26D9 /* UIScrollView+Refresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C6C26E2688C73000FF26D9 /* UIScrollView+Refresher.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		974BB9772689D2A7005B7C54 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 97E58EB526844D8800860764 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 974BB9712689D2A7005B7C54;
-			remoteInfo = Refresher;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		97C6C2872688C84300FF26D9 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				974BB97A2689D2A7005B7C54 /* Refresher.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		09F8274E4812A01381079A19 /* Pods_Refresher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Refresher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,7 +62,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				974BB9792689D2A7005B7C54 /* Refresher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,12 +163,10 @@
 				97C6C2442688C66B00FF26D9 /* Sources */,
 				97C6C2452688C66B00FF26D9 /* Frameworks */,
 				97C6C2462688C66B00FF26D9 /* Resources */,
-				97C6C2872688C84300FF26D9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				974BB9782689D2A7005B7C54 /* PBXTargetDependency */,
 			);
 			name = Refresher_iOS;
 			productName = Refresher;
@@ -293,14 +264,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		974BB9782689D2A7005B7C54 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 974BB9712689D2A7005B7C54 /* Refresher */;
-			targetProxy = 974BB9772689D2A7005B7C54 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
 		97E58EC626844D8800860764 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -384,7 +347,6 @@
 		97C6C2592688C66E00FF26D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -395,6 +357,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zyvv.Refresher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -405,7 +368,6 @@
 		97C6C25A2688C66E00FF26D9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -416,6 +378,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zyvv.Refresher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

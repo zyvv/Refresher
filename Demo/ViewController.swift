@@ -26,7 +26,7 @@ class ViewController: UICollectionViewController {
         super.viewDidLoad()
         title = "Refresher"
         view.backgroundColor = .systemBackground
-        collectionView.register(ColorCell.self, forCellWithReuseIdentifier: ColorCell.reuserIdentifier)
+        collectionView.register(ColorCell.self, forCellWithReuseIdentifier: ColorCell.reuseIdentifier)
         configureLayout()
         applySnapshot()
         
@@ -43,7 +43,7 @@ class ViewController: UICollectionViewController {
     
     func makeDataSource() -> DataSource {
         return DataSource(collectionView: collectionView) { collectionView, indexPath, color in
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorCell.reuserIdentifier, for: indexPath) as? ColorCell else { fatalError() }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorCell.reuseIdentifier, for: indexPath) as? ColorCell else { fatalError() }
             cell.configureCell(color)
             return cell
         }

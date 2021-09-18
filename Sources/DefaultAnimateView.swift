@@ -57,8 +57,6 @@ public final class DefaultAnimateView: UIView, Refreshable {
             transform(to: 1)
         case .refreshing:
             activityIndicator.startAnimating()
-        case .rebounding(progress: let progress):
-            transform(to: 1-progress)
         }
     }
 }
